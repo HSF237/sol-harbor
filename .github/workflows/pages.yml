@@ -36,7 +36,11 @@ jobs:
       - name: Build the game
         run: node build.mjs
       - name: Prepare site
-        run: mkdir -p site && cp dist/solharbor.html site/index.html && touch site/.nojekyll
+        run: |
+          mkdir -p site/air-cursor
+          cp dist/solharbor.html site/index.html
+          cp air-cursor/index.html site/air-cursor/index.html
+          touch site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
